@@ -1,0 +1,76 @@
+6. What is R.java file 
+
+ans -> Android R.java is an auto-generated file by aapt (Android Asset Packaging Tool) that contains resource IDs for all the resources of res/ directory.
+
+If you create any component in the activity_main.xml file, id for the corresponding component is automatically created in this file. This id can be used in the activity source file to perform any action on the component.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. What is activity and activity lifecycle 
+
+ans -> As a user navigates through, out of, and back to your app, the Activity instances in your app transition through different states in their lifecycle. The Activity class provides a number of callbacks that allow the activity to know that a state has changed: that the system is creating, stopping, or resuming an activity, or destroying the process in which the activity resides.
+
+Within the lifecycle callback methods, you can declare how your activity behaves when the user leaves and re-enters the activity. For example, if you're building a streaming video player, you might pause the video and terminate the network connection when the user switches to another app. When the user returns, you can reconnect to the network and allow the user to resume the video from the same spot. In other words, each callback allows you to perform specific work that's appropriate to a given change of state. Doing the right work at the right time and handling transitions properly make your app more robust and performant. For example, good implementation of the lifecycle callbacks can help ensure that your app avoids:
+
+Crashing if the user receives a phone call or switches to another app while using your app.
+Consuming valuable system resources when the user is not actively using it.
+Losing the user's progress if they leave your app and return to it at a later time.
+Crashing or losing the user's progress when the screen rotates between landscape and portrait orientation.
+This document explains the activity lifecycle in detail. The document begins by describing the lifecycle paradigm. Next, it explains each of the callbacks: what happens internally while they execute, and what you should implement during them. It then briefly introduces the relationship between activity state and a process’s vulnerability to being killed by the system. Last, it discusses several topics related to transitions between activity states.
+
+For information about handling lifecycles, including guidance about best practices, see Handling Lifecycles with Lifecycle-Aware Components and Saving UI States. To learn how to architect a robust, production-quality app using activities in combination with architecture components, see Guide to App Architecture.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. What is fragment and fragment lifecycle 
+
+ans -> Each Fragment instance has its own lifecycle. When a user navigates and interacts with your app, your fragments transition through various states in their lifecycle as they are added, removed, and enter or exit the screen.
+
+To manage lifecycle, Fragment implements LifecycleOwner, exposing a Lifecycle object that you can access through the getLifecycle() method.
+
+Each possible Lifecycle state is represented in the Lifecycle.State enum.
+
+INITIALIZED
+CREATED
+STARTED
+RESUMED
+DESTROYED
+By building Fragment on top of Lifecycle, you can use the techniques and classes available for Handling Lifecycles with Lifecycle-Aware Components. For example, you might display the device's location on the screen using a lifecycle-aware component. This component could automatically start listening when the fragment becomes active and stop when the fragment moves to an inactive state.
+
+As an alternative to using a LifecycleObserver, the Fragment class includes callback methods that correspond to each of the changes in a fragment's lifecycle. These include onCreate(), onStart(), onResume(), onPause(), onStop(), and onDestroy().
+
+A fragment's view has a separate Lifecycle that is managed independently from that of the fragment's Lifecycle. Fragments maintain a LifecycleOwner for their view, which can be accessed using getViewLifecycleOwner() or getViewLifecycleOwnerLiveData(). Having access to the view's Lifecycle is useful for situations where a Lifecycle-aware component should only perform work while a fragment's view exists, such as observing LiveData that is only meant to be displayed on the screen.
+
+This topic discusses the Fragment lifecycle in detail, explaining some of the rules that determine a fragment's lifecycle state and showing the relationship between the Lifecycle states and the fragment lifecycle callbacks.
+
+Fragments and the fragment manager
+When a fragment is instantiated, it begins in the INITIALIZED state. For a fragment to transition through the rest of its lifecycle, it must be added to a FragmentManager. The FragmentManager is responsible for determining what state its fragment should be in and then moving them into that state.
+
+Beyond the fragment lifecycle, FragmentManager is also responsible for attaching fragments to their host activity and detaching them when the fragment is no longer in use. The Fragment class has two callback methods, onAttach() and onDetach(), that you can override to perform work when either of these events occur.
+
+The onAttach() callback is invoked when the fragment has been added to a FragmentManager and is attached to its host activity. At this point, the fragment is active, and the FragmentManager is managing its lifecycle state. At this point, FragmentManager methods such as findFragmentById() return this fragment.
+
+onAttach() is always called before any Lifecycle state changes.
+
+The onDetach() callback is invoked when the fragment has been removed from a FragmentManager and is detached from its host activity. The fragment is no longer active and can no longer be retrieved using findFragmentById().
+
+onDetach() is always called after any Lifecycle state changes.
+
+Note that these callbacks are unrelated to the FragmentTransaction methods attach() and detach(). For more information on these methods, see Fragment transactions.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. Activity to fragment and fragment to activity
+
+ans -> To reuse fragments, build each as a completely self-contained component that defines its own layout and behavior. Once you have defined these reusable fragments, you can associate them with an activity and connect them with the application logic to realize the overall composite UI.
+
+To properly react to user events, or to share state information, you often need to have channels of communication between an activity and its fragments or between two or more fragments. To keep fragments self-contained, you should not have fragments communicate directly with other fragments or with its host activity.
+
+The Fragment library provides two options for communication: a shared ViewModel and the Fragment Result API. The recommended option depends on the use case. To share persistent data with any custom APIs, you should use a ViewModel. For a one-time result with data that can be placed in a Bundle, you should use the Fragment Result API.
+
+
+The following sections show you how to use ViewModel and the Fragment Result API to communicate between your fragments and activities.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Module -4) Android UI Development 

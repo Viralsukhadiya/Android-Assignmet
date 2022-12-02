@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="person"
+            type="com.example.jetpackcomposeandroid.Person" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        tools:context=".JetpackCompose.DataBindingActivity">
+
+
+            <TextView
+                android:id="@+id/et_name"
+                android:text="@{person.name}"
+                android:hint="Enter Name"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/et_email"
+                android:text="@{person.email}"
+                android:hint="Enter Email"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/et_age"
+                android:text="@{String.valueOf(person.age)}"
+                android:hint="Enter Age"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:textSize="20sp"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+</layout>

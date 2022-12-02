@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="25dp"
+    android:background="@color/gray_800">
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+      <Button
+          android:id="@+id/btn_linear_layout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="20dp"
+          android:backgroundTint="@color/blue"
+          android:text="Linear Layout"
+          android:textAllCaps="false" />
+
+      <Button
+          android:id="@+id/btn_relative_layout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/Amber_900"
+          android:text="Relative Layout"
+          android:textAllCaps="false" />
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <Button
+          android:id="@+id/btn_fragment"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:layout_marginLeft="30dp"
+          android:backgroundTint="@color/purple_200"
+          android:text="Fragment"
+          android:textAllCaps="false" />
+
+      <Button
+          android:id="@+id/btn_login"
+          android:text="Login"
+          android:textAllCaps="false"
+          android:backgroundTint="@color/teal_200"
+          android:layout_marginRight="10dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+      <Button
+          android:id="@+id/btn_recycler"
+          android:text="Recycler"
+          android:textAllCaps="false"
+          android:backgroundTint="#036BDA"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <Button
+          android:id="@+id/btn_viewpager"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="20dp"
+          android:layout_marginLeft="30dp"
+          android:backgroundTint="#D03AEC"
+          android:text="ViewPager"
+          android:textAllCaps="false" />
+
+      <Button
+          android:id="@+id/btn_ jetpackcompose"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:backgroundTint="#E63573"
+          android:text=" Jetpack Compose"
+          android:textAllCaps="false" />
+
+
+
+   </LinearLayout>
+</LinearLayout>
+</RelativeLayout>
